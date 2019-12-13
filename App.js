@@ -18,6 +18,10 @@ export default function App() {
     setNotes(notes => notes.slice(index, 1));
   };
 
+  const updateNote = index => {
+    setNotes(notes => notes.slice(index, 1));
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.containerTwo}>
