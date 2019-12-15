@@ -15,11 +15,16 @@ export default function App() {
   };
 
   const deleteNote = index => {
-    setNotes(notes => notes.slice(index, 1));
+    setNotes(notes => notes.filter((note, currentIndex) => index !== currentIndex));
   };
 
-  const updateNote = index => {
-    setNotes(notes => notes.slice(index, 1));
+  const updateNote = (index, updatedNote) => {
+    setNotes(notes =>
+      notes.map((note, currentIndex) => {
+        if (currentIndex === index) return updateNote;
+        return note;
+      })
+    );
   };
 
   return (
@@ -48,6 +53,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   containerTwo: {
-    flexDirection: 'row'
+    flexDirection: 'row',
+    height: 50,
+    marginTop: 200
   }
 });
