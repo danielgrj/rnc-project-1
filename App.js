@@ -21,7 +21,7 @@ export default function App() {
   const updateNote = (index, updatedNote) => {
     setNotes(notes =>
       notes.map((note, currentIndex) => {
-        if (currentIndex === index) return updateNote;
+        if (currentIndex === index) return updatedNote;
         return note;
       })
     );
